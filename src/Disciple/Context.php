@@ -76,11 +76,23 @@ class Context implements Adapter, Profile
     }
 
     /**
-     * Get logged in user ID
+     * Get user ID if logged in
      */
     public function getId(): ?string
     {
         return $this->getProfile()->getId();
+    }
+
+    /**
+     * Get ID of logged in user
+     */
+    public function getActiveId(): string
+    {
+        if (!$this->isLoggedIn()) {
+            throw Exceptional::Runtime('User is not logged in');
+        }
+
+        return (string)$this->getProfile()->getId();
     }
 
     /**
