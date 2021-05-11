@@ -1,3 +1,6 @@
+## v0.1.2 (2021-05-11)
+* Added Veneer IDE support stub
+
 ## v0.1.1 (2021-05-05)
 * Added getActiveId() to Context
 
