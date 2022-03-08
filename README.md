@@ -116,6 +116,24 @@ if(Disciple::isLoggedIn()) {
 ```
 
 
+### Client
+
+An Adapter should also be able to provide a Client object which can report details of how a user is interfacing with the system.
+
+Currently, that entails the following, but with more to follow in future versions:
+
+```php
+namespace DecodeLabs\Disciple;
+
+interface Client
+{
+    public function getProtocol(): string;
+    public function getIpString(): string;
+    public function getAgent(): ?string;
+}
+```
+
+
 ### Signifiers
 
 The Disciple interfaces define the concept of <code>signifiers</code> - string keys that users can be categorised and identified by.
@@ -129,6 +147,7 @@ if(Disciple::isA('admin')) {
     echo 'You should go home now';
 }
 ```
+
 
 
 ## Licensing
