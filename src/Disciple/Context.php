@@ -10,6 +10,9 @@ declare(strict_types=1);
 namespace DecodeLabs\Disciple;
 
 use DateTime;
+use DecodeLabs\Disciple\Adapter\GateKeeper as GateKeeperAdapter;
+
+use DecodeLabs\Disciple\GateKeeper\Dummy as DummyGateKeeper;
 use DecodeLabs\Exceptional;
 
 class Context implements Adapter, Profile
@@ -18,6 +21,11 @@ class Context implements Adapter, Profile
      * @var Adapter|null
      */
     protected $adapter;
+
+    /**
+     * @var GateKeeper|null
+     */
+    protected $gateKeeper;
 
     /**
      * Set adapter
@@ -76,6 +84,15 @@ class Context implements Adapter, Profile
     }
 
     /**
+     * Get client data object
+     */
+    public function getClient(): Client
+    {
+        return $this->getAdapter()->getClient();
+    }
+
+
+    /**
      * Get user ID if logged in
      */
     public function getId(): ?string
@@ -92,7 +109,13 @@ class Context implements Adapter, Profile
             throw Exceptional::Runtime('User is not logged in');
         }
 
-        return (string)$this->getProfile()->getId();
+        $id = $this->getProfile()->getId();
+
+        if ($id === null) {
+            throw Exceptional::Runtime('User does not have an ID');
+        }
+
+        return (string)$id;
     }
 
     /**
@@ -191,5 +214,43 @@ class Context implements Adapter, Profile
     public function isA(string ...$signifiers): bool
     {
         return $this->getAdapter()->isA(...$signifiers);
+    }
+
+
+
+    /**
+     * Get IP string
+     */
+    public function getIpString(): string
+    {
+        return $this->getClient()->getIpString();
+    }
+
+    /**
+     * Get user agent
+     */
+    public function getAgent(): ?string
+    {
+        return $this->getClient()->getAgent();
+    }
+
+
+
+    /**
+     * Get GateKeeper
+     */
+    public function getGateKeeper(): GateKeeper
+    {
+        if ($this->gateKeeper) {
+            return $this->gateKeeper;
+        }
+
+        $adapter = $this->getAdapter();
+
+        if ($adapter instanceof GateKeeperAdapter) {
+            return $this->gateKeeper = $adapter->getGateKeeper();
+        }
+
+        return $this->gateKeeper = new DummyGateKeeper();
     }
 }

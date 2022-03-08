@@ -15,6 +15,7 @@ interface Adapter
 
     public function getIdentity(): ?string;
     public function getProfile(): Profile;
+    public function getClient(): Client;
 
     public function isA(string ...$signifiers): bool;
 }
