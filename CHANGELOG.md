@@ -1,3 +1,8 @@
+## v0.2.0 (2022-03-08)
+* Added Client interface and adapter support
+* Added GateKeeper interface and adapter support
+* Added Login Attempt approval to GateKeeper
+
 ## v0.1.3 (2021-10-20)
 * Updated Veneer dependency
 
