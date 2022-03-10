@@ -1,3 +1,7 @@
+## v0.2.1 (2022-03-10)
+* Transitioned from Travis to GHA
+* Updated PHPStan and ECS dependencies
+
 ## v0.2.0 (2022-03-08)
 * Added Client interface and adapter support
 * Added GateKeeper interface and adapter support
