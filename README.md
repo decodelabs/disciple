@@ -1,11 +1,11 @@
 # Disciple
 
-[![PHP from Packagist](https://img.shields.io/packagist/php-v/decodelabs/disciple?style=flat-square)](https://packagist.org/packages/decodelabs/disciple)
-[![Latest Version](https://img.shields.io/packagist/v/decodelabs/disciple.svg?style=flat-square)](https://packagist.org/packages/decodelabs/disciple)
-[![Total Downloads](https://img.shields.io/packagist/dt/decodelabs/disciple.svg?style=flat-square)](https://packagist.org/packages/decodelabs/disciple)
-[![Build Status](https://img.shields.io/travis/com/decodelabs/disciple/main.svg?style=flat-square)](https://app.travis-ci.com/github/decodelabs/disciple)
-[![PHPStan](https://img.shields.io/badge/PHPStan-enabled-44CC11.svg?longCache=true&style=flat-square)](https://github.com/phpstan/phpstan)
-[![License](https://img.shields.io/packagist/l/decodelabs/disciple?style=flat-square)](https://packagist.org/packages/decodelabs/disciple)
+[![PHP from Packagist](https://img.shields.io/packagist/php-v/decodelabs/disciple?style=flat)](https://packagist.org/packages/decodelabs/disciple)
+[![Latest Version](https://img.shields.io/packagist/v/decodelabs/disciple.svg?style=flat)](https://packagist.org/packages/decodelabs/disciple)
+[![Total Downloads](https://img.shields.io/packagist/dt/decodelabs/disciple.svg?style=flat)](https://packagist.org/packages/decodelabs/disciple)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/decodelabs/disciple/PHP%20Composer)](https://github.com/decodelabs/disciple/actions/workflows/php.yml)
+[![PHPStan](https://img.shields.io/badge/PHPStan-enabled-44CC11.svg?longCache=true&style=flat)](https://github.com/phpstan/phpstan)
+[![License](https://img.shields.io/packagist/l/decodelabs/disciple?style=flat)](https://packagist.org/packages/decodelabs/disciple)
 
 Take control of your users
 
