@@ -11,28 +11,22 @@ namespace DecodeLabs\Disciple;
 
 use DateTime;
 use DecodeLabs\Disciple\Adapter\GateKeeper as GateKeeperAdapter;
-
 use DecodeLabs\Disciple\GateKeeper\Dummy as DummyGateKeeper;
 use DecodeLabs\Exceptional;
 
-class Context implements Adapter, Profile
+class Context implements
+    Adapter,
+    Profile
 {
-    /**
-     * @var Adapter|null
-     */
-    protected $adapter;
-
-    /**
-     * @var GateKeeper|null
-     */
-    protected $gateKeeper;
+    protected ?Adapter $adapter = null;
+    protected ?GateKeeper $gateKeeper = null;
 
     /**
      * Set adapter
      *
      * @return $this
      */
-    public function setAdapter(Adapter $adapter): Context
+    public function setAdapter(Adapter $adapter): static
     {
         $this->adapter = $adapter;
         return $this;
