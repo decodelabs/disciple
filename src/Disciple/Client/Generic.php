@@ -13,20 +13,9 @@ use DecodeLabs\Disciple\Client;
 
 class Generic implements Client
 {
-    /**
-     * @var string
-     */
-    protected $protocol;
-
-    /**
-     * @var string
-     */
-    protected $ip;
-
-    /**
-     * @var string|null
-     */
-    protected $agent;
+    protected string $protocol;
+    protected string $ip;
+    protected ?string $agent;
 
     /**
      * Init with details

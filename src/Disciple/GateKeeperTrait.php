@@ -16,10 +16,7 @@ use Throwable;
 
 trait GateKeeperTrait
 {
-    /**
-     * @var Adapter
-     */
-    protected $adapter;
+    protected Adapter $adapter;
 
 
     /**
@@ -178,7 +175,7 @@ trait GateKeeperTrait
     /**
      * Get indexed list of attempts
      *
-     * @return array<string, array<Attempt>>|null
+     * @return array<string, array<DateTime>>|null
      */
     private function getIndexedAttempts(string $identity): ?array
     {

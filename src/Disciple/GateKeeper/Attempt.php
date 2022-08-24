@@ -13,20 +13,9 @@ use DateTime;
 
 class Attempt
 {
-    /**
-     * @var DateTime
-     */
-    protected $date;
-
-    /**
-     * @var string
-     */
-    protected $ip;
-
-    /**
-     * @var bool
-     */
-    protected $success;
+    protected DateTime $date;
+    protected string $ip;
+    protected bool $success;
 
 
     /**
