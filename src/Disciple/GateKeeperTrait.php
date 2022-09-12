@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace DecodeLabs\Disciple;
 
 use DateTime;
+use DecodeLabs\Compass\Ip;
 use DecodeLabs\Disciple\GateKeeper\Attempt;
 use DecodeLabs\Glitch;
 use Throwable;
@@ -189,7 +190,7 @@ trait GateKeeperTrait
         $index = $authed = [];
 
         foreach ($attempts as $attempt) {
-            $ip = $attempt->getIp();
+            $ip = $attempt->getIpString();
 
             if ($attempt->wasSuccessful()) {
                 $authed[$ip] = true;

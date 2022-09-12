@@ -10,11 +10,12 @@ declare(strict_types=1);
 namespace DecodeLabs\Disciple\GateKeeper;
 
 use DateTime;
+use DecodeLabs\Compass\Ip;
 
 class Attempt
 {
     protected DateTime $date;
-    protected string $ip;
+    protected Ip $ip;
     protected bool $success;
 
 
@@ -23,11 +24,11 @@ class Attempt
      */
     public function __construct(
         DateTime $date,
-        string $ip,
+        Ip|string $ip,
         bool $success
     ) {
         $this->date = $date;
-        $this->ip = $ip;
+        $this->ip = Ip::parse($ip);
         $this->success = $success;
     }
 
@@ -43,9 +44,17 @@ class Attempt
     /**
      * Get IP
      */
-    public function getIp(): string
+    public function getIp(): Ip
     {
         return $this->ip;
+    }
+
+    /**
+     * Get IP string
+     */
+    public function getIpString(): string
+    {
+        return (string)$this->ip;
     }
 
     /**

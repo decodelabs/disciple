@@ -9,11 +9,13 @@ declare(strict_types=1);
 
 namespace DecodeLabs\Disciple;
 
+use DecodeLabs\Compass\Ip;
+
 interface Client
 {
     public function getProtocol(): string;
     public function getIpString(): string;
-    //public function getIp(): Ip;
+    public function getIp(): Ip;
 
     public function getAgent(): ?string;
 }
