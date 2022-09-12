@@ -1,3 +1,5 @@
+## v0.3.2 (2022-09-12)
+* Use Compass for IP support
 * Updated CI environment
 
 ## v0.3.1 (2022-08-24)
