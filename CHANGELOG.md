@@ -1,3 +1,6 @@
+## v0.3.3 (2022-09-12)
+* Added getIp() to Context
+
 ## v0.3.2 (2022-09-12)
 * Use Compass for IP support
 * Updated CI environment
