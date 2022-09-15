@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace DecodeLabs\Disciple;
 
 use DateTime;
+use DecodeLabs\Compass\Ip;
 use DecodeLabs\Disciple\Adapter\GateKeeper as GateKeeperAdapter;
 use DecodeLabs\Disciple\GateKeeper\Dummy as DummyGateKeeper;
 use DecodeLabs\Exceptional;
@@ -211,6 +212,13 @@ class Context implements
     }
 
 
+    /**
+     * Get IP address
+     */
+    public function getIp(): Ip
+    {
+        return $this->getClient()->getIp();
+    }
 
     /**
      * Get IP string
