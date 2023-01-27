@@ -5,8 +5,8 @@
  */
 namespace DecodeLabs;
 
-use DecodeLabs\Veneer\Proxy;
-use DecodeLabs\Veneer\ProxyTrait;
+use DecodeLabs\Veneer\Proxy as Proxy;
+use DecodeLabs\Veneer\ProxyTrait as ProxyTrait;
 use DecodeLabs\Disciple\Context as Inst;
 use DecodeLabs\Disciple\Adapter as Ref0;
 use DecodeLabs\Disciple\Profile as Ref1;
@@ -19,7 +19,7 @@ class Disciple implements Proxy
 {
     use ProxyTrait;
 
-    const VENEER = 'DecodeLabs\Disciple';
+    const VENEER = 'DecodeLabs\\Disciple';
     const VENEER_TARGET = Inst::class;
 
     public static Inst $instance;
