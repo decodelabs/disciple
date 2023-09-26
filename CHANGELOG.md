@@ -1,3 +1,7 @@
+## v0.3.6 (2023-09-26)
+* Migrated to use effigy in CI workflow
+* Fixed PHP8.1 testing
+
 ## v0.3.5 (2022-09-27)
 * Updated Veneer stub
 * Updated composer check script

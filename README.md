@@ -3,11 +3,17 @@
 [![PHP from Packagist](https://img.shields.io/packagist/php-v/decodelabs/disciple?style=flat)](https://packagist.org/packages/decodelabs/disciple)
 [![Latest Version](https://img.shields.io/packagist/v/decodelabs/disciple.svg?style=flat)](https://packagist.org/packages/decodelabs/disciple)
 [![Total Downloads](https://img.shields.io/packagist/dt/decodelabs/disciple.svg?style=flat)](https://packagist.org/packages/decodelabs/disciple)
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/decodelabs/disciple/Integrate)](https://github.com/decodelabs/disciple/actions/workflows/integrate.yml)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/decodelabs/disciple/integrate.yml?branch=develop)](https://github.com/decodelabs/disciple/actions/workflows/integrate.yml)
 [![PHPStan](https://img.shields.io/badge/PHPStan-enabled-44CC11.svg?longCache=true&style=flat)](https://github.com/phpstan/phpstan)
 [![License](https://img.shields.io/packagist/l/decodelabs/disciple?style=flat)](https://packagist.org/packages/decodelabs/disciple)
 
-Take control of your users
+### Take control of your users
+
+Disciple offers a set of simple interfaces that allows third party code to define reliable entry points to user state and data.
+
+_Get news and updates on the [DecodeLabs blog](https://blog.decodelabs.com)._
+
+---
 
 ## Installation
 
@@ -27,7 +33,7 @@ You can access all the primary functionality via this static frontage without co
 
 ### Implementation
 
-Disciple currently offers a set of simple interfaces that allows third party code to define reliable entry points to user state and data.
+An implementation of Disciple revolves around an Adapter - this acts as the primary mediator between the Disciple Veneer frontage and your system's user management infrastructure.
 
 ```php
 namespace DecodeLabs\Disciple;
@@ -42,8 +48,6 @@ interface Adapter
     public function isA(string ...$signifiers): bool;
 }
 ```
-
-An implementation of Disciple revolves around an Adapter - this acts as the primary mediator between the Disciple Veneer frontage and your system's user management infrastructure.
 
 Your adapter should be registered during your app's bootstrap process:
 
