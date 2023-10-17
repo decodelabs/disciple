@@ -11,9 +11,11 @@ namespace DecodeLabs\Disciple;
 
 use DateTime;
 use DecodeLabs\Compass\Ip;
+use DecodeLabs\Disciple;
 use DecodeLabs\Disciple\Adapter\GateKeeper as GateKeeperAdapter;
 use DecodeLabs\Disciple\GateKeeper\Dummy as DummyGateKeeper;
 use DecodeLabs\Exceptional;
+use DecodeLabs\Veneer;
 
 class Context implements
     Adapter,
@@ -256,3 +258,6 @@ class Context implements
         return $this->gateKeeper = new DummyGateKeeper();
     }
 }
+
+// Register the Veneer facade
+Veneer::register(Context::class, Disciple::class);

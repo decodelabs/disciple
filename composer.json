@@ -2,12 +2,12 @@
     "name": "decodelabs/disciple",
     "description": "Take control of your users",
     "type": "library",
-    "keywords": ["user", "client"],
+    "keywords": [ "user", "client" ],
     "license": "MIT",
-    "authors": [{
-        "name": "Tom Wright",
-        "email": "tom@inflatablecookie.com"
-    }],
+    "authors": [ {
+            "name": "Tom Wright",
+            "email": "tom@inflatablecookie.com"
+        } ],
     "require": {
         "php": "^8.0",
 
@@ -21,10 +21,10 @@
     },
     "autoload": {
         "psr-4": {
-            "DecodeLabs\\Disciple\\": "src/Disciple"
+            "DecodeLabs\\Disciple\\": "src/"
         },
         "files": [
-            "src/global.php"
+            "src/Context.php"
         ]
     },
     "extra": {
