@@ -29,8 +29,9 @@ class Context implements
      *
      * @return $this
      */
-    public function setAdapter(Adapter $adapter): static
-    {
+    public function setAdapter(
+        Adapter $adapter
+    ): static {
         $this->adapter = $adapter;
         return $this;
     }
@@ -208,8 +209,9 @@ class Context implements
     /**
      * Check if profile contains any of the following signifiers
      */
-    public function isA(string ...$signifiers): bool
-    {
+    public function isA(
+        string ...$signifiers
+    ): bool {
         return $this->getAdapter()->isA(...$signifiers);
     }
 

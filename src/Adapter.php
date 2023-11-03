@@ -17,5 +17,7 @@ interface Adapter
     public function getProfile(): Profile;
     public function getClient(): Client;
 
-    public function isA(string ...$signifiers): bool;
+    public function isA(
+        string ...$signifiers
+    ): bool;
 }
