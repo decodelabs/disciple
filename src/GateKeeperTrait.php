@@ -124,7 +124,7 @@ trait GateKeeperTrait
     abstract protected function storeAttempt(
         string $identity,
         string $ip,
-        string $agent,
+        ?string $agent,
         bool $success
     ): void;
 
