@@ -23,8 +23,9 @@ trait GateKeeperTrait
     /**
      * Init with adapter
      */
-    public function __construct(Adapter $adapter)
-    {
+    public function __construct(
+        Adapter $adapter
+    ) {
         $this->adapter = $adapter;
     }
 
@@ -123,7 +124,7 @@ trait GateKeeperTrait
     abstract protected function storeAttempt(
         string $identity,
         string $ip,
-        string $agent,
+        ?string $agent,
         bool $success
     ): void;
 
@@ -167,8 +168,9 @@ trait GateKeeperTrait
     /**
      * Prepare identity string
      */
-    protected function prepareIdentity(string $identity): string
-    {
+    protected function prepareIdentity(
+        string $identity
+    ): string {
         return trim($identity);
     }
 
@@ -178,8 +180,9 @@ trait GateKeeperTrait
      *
      * @return array<string, array<DateTime>>|null
      */
-    private function getIndexedAttempts(string $identity): ?array
-    {
+    private function getIndexedAttempts(
+        string $identity
+    ): ?array {
         $attempts = $this->fetchAttempts($identity, $this->getAttemptThresholdDate());
         $count = count($attempts);
 

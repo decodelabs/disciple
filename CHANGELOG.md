@@ -1,3 +1,8 @@
+## v0.4.0 (2023-11-18)
+* Fixed storeAttempt() signature
+* Made PHP8.1 minimum version
+* Refactored package file structure
+
 ## v0.3.6 (2023-09-26)
 * Migrated to use effigy in CI workflow
 * Fixed PHP8.1 testing

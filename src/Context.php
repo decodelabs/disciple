@@ -11,9 +11,11 @@ namespace DecodeLabs\Disciple;
 
 use DateTime;
 use DecodeLabs\Compass\Ip;
+use DecodeLabs\Disciple;
 use DecodeLabs\Disciple\Adapter\GateKeeper as GateKeeperAdapter;
 use DecodeLabs\Disciple\GateKeeper\Dummy as DummyGateKeeper;
 use DecodeLabs\Exceptional;
+use DecodeLabs\Veneer;
 
 class Context implements
     Adapter,
@@ -27,8 +29,9 @@ class Context implements
      *
      * @return $this
      */
-    public function setAdapter(Adapter $adapter): static
-    {
+    public function setAdapter(
+        Adapter $adapter
+    ): static {
         $this->adapter = $adapter;
         return $this;
     }
@@ -206,8 +209,9 @@ class Context implements
     /**
      * Check if profile contains any of the following signifiers
      */
-    public function isA(string ...$signifiers): bool
-    {
+    public function isA(
+        string ...$signifiers
+    ): bool {
         return $this->getAdapter()->isA(...$signifiers);
     }
 
@@ -256,3 +260,6 @@ class Context implements
         return $this->gateKeeper = new DummyGateKeeper();
     }
 }
+
+// Register the Veneer facade
+Veneer::register(Context::class, Disciple::class);
