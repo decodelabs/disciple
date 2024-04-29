@@ -1,3 +1,6 @@
+## v0.4.1 (2024-04-29)
+* Fixed Veneer stubs in gitattributes
+
 ## v0.4.0 (2023-11-18)
 * Fixed storeAttempt() signature
 * Made PHP8.1 minimum version
