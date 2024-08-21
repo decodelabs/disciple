@@ -19,8 +19,8 @@ class Disciple implements Proxy
 {
     use ProxyTrait;
 
-    const VENEER = 'DecodeLabs\\Disciple';
-    const VENEER_TARGET = Inst::class;
+    const Veneer = 'DecodeLabs\\Disciple';
+    const VeneerTarget = Inst::class;
 
     public static Inst $instance;
 
