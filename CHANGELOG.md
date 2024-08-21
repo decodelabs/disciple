@@ -1,3 +1,7 @@
+## v0.4.3 (2024-08-21)
+* Updated Compass dependency
+* Updated Veneer dependency and Stub
+
 ## v0.4.2 (2024-07-17)
 * Updated Veneer dependency
 
