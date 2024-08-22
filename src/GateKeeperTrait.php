@@ -15,6 +15,9 @@ use DecodeLabs\Disciple\GateKeeper\Attempt;
 use DecodeLabs\Glitch;
 use Throwable;
 
+/**
+ * @phpstan-require-implements GateKeeper
+ */
 trait GateKeeperTrait
 {
     protected Adapter $adapter;
