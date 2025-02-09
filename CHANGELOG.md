@@ -1,3 +1,5 @@
+* Added PHP8.4 to CI workflow
+
 ## v0.4.4 (2024-08-27)
 * Added Generic Profile implementation
 * Added @phpstan-require-implements constraints
