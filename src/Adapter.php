@@ -11,11 +11,11 @@ namespace DecodeLabs\Disciple;
 
 interface Adapter
 {
-    public function isLoggedIn(): bool;
+    public ?string $identity { get; }
+    public Profile $profile { get; }
+    public Client $client { get; }
 
-    public function getIdentity(): ?string;
-    public function getProfile(): Profile;
-    public function getClient(): Client;
+    public function isLoggedIn(): bool;
 
     public function isA(
         string ...$signifiers

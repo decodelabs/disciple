@@ -14,5 +14,5 @@ use DecodeLabs\Disciple\GateKeeper as Handler;
 
 interface GateKeeper extends Adapter
 {
-    public function getGateKeeper(): Handler;
+    public Handler $gateKeeper { get; }
 }

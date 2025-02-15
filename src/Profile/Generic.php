@@ -14,25 +14,67 @@ use DecodeLabs\Disciple\Profile;
 
 class Generic implements Profile
 {
-    protected ?string $id;
-    protected ?string $email;
-    protected ?string $fullName;
-    protected ?string $nickName;
+    private const array Titles = [
+        'mr', 'mrs', 'miss', 'ms', 'mx', 'master', 'maid', 'madam', 'dr'
+    ];
 
-    protected ?DateTime $registrationDate;
-    protected ?DateTime $lastLoginDate;
+    protected(set) ?string $id;
+    protected(set) ?string $email;
+    protected(set) ?string $fullName;
 
-    protected ?string $language;
-    protected ?string $country;
-    protected ?string $timeZone;
+    public ?string $firstName {
+        get {
+            $fullName = trim((string)$this->fullName);
+
+            if (empty($fullName)) {
+                return null;
+            }
+
+            if (false === ($parts = preg_split('/\s+|\./', $fullName))) {
+                $parts = explode(' ', $fullName);
+            }
+
+            do {
+                $output = (string)array_shift($parts);
+                $test = strtolower(str_replace([',', '.', '-'], '', $output));
+            } while (
+                count($parts) > 1 &&
+                in_array($test, self::Titles)
+            );
+
+            return ucfirst($output);
+        }
+    }
+
+    public ?string $surname {
+        get {
+            $fullName = trim((string)$this->fullName);
+
+            if (empty($fullName)) {
+                return null;
+            }
+
+            $parts = explode(' ', $fullName);
+            return array_pop($parts);
+        }
+    }
+
+    protected(set) ?string $nickName;
+
+    protected(set) ?DateTime $registrationDate;
+    protected(set) ?DateTime $lastLoginDate;
+
+    protected(set) ?string $language;
+    protected(set) ?string $country;
+    protected(set) ?string $timeZone;
 
     /**
-     * @var array<string>
+     * @var list<string>
      */
-    protected array $signifiers = [];
+    protected(set) array $signifiers = [];
 
     /**
-     * @param array<string> $signifiers
+     * @param list<string> $signifiers
      */
     public function __construct(
         ?string $id,
@@ -56,91 +98,5 @@ class Generic implements Profile
         $this->country = $country;
         $this->timeZone = $timeZone;
         $this->signifiers = $signifiers;
-    }
-
-    public function getId(): ?string
-    {
-        return $this->id;
-    }
-
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    public function getFullName(): ?string
-    {
-        return $this->fullName;
-    }
-
-    public function getFirstName(): ?string
-    {
-        static $titles = ['mr', 'mrs', 'miss', 'ms', 'mx', 'master', 'maid', 'madam', 'dr'];
-        $fullName = trim((string)$this->getFullName());
-
-        if (empty($fullName)) {
-            return null;
-        }
-
-        if (false === ($parts = preg_split('/\s+|\./', $fullName))) {
-            $parts = explode(' ', $fullName);
-        }
-
-        do {
-            $output = (string)array_shift($parts);
-            $test = strtolower(str_replace([',', '.', '-'], '', $output));
-        } while (
-            count($parts) > 1 &&
-            in_array($test, $titles)
-        );
-
-        return ucfirst($output);
-    }
-
-    public function getSurname(): ?string
-    {
-        $fullName = trim((string)$this->getFullName());
-
-        if (empty($fullName)) {
-            return null;
-        }
-
-        $parts = explode(' ', $fullName);
-        return array_pop($parts);
-    }
-
-    public function getNickName(): ?string
-    {
-        return $this->nickName;
-    }
-
-    public function getRegistrationDate(): ?DateTime
-    {
-        return $this->registrationDate;
-    }
-
-    public function getLastLoginDate(): ?DateTime
-    {
-        return $this->lastLoginDate;
-    }
-
-    public function getLanguage(): ?string
-    {
-        return $this->language;
-    }
-
-    public function getCountry(): ?string
-    {
-        return $this->country;
-    }
-
-    public function getTimeZone(): ?string
-    {
-        return $this->timeZone;
-    }
-
-    public function getSignifiers(): array
-    {
-        return $this->signifiers;
     }
 }

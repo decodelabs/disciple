@@ -19,84 +19,84 @@ class Disciple implements Proxy
 {
     use ProxyTrait;
 
-    const Veneer = 'DecodeLabs\\Disciple';
-    const VeneerTarget = Inst::class;
+    public const Veneer = 'DecodeLabs\\Disciple';
+    public const VeneerTarget = Inst::class;
 
-    public static Inst $instance;
+    protected static Inst $_veneerInstance;
 
     public static function setAdapter(Ref0 $adapter): Inst {
-        return static::$instance->setAdapter(...func_get_args());
+        return static::$_veneerInstance->setAdapter(...func_get_args());
     }
     public static function getAdapter(): Ref0 {
-        return static::$instance->getAdapter();
+        return static::$_veneerInstance->getAdapter();
     }
     public static function hasAdapter(): bool {
-        return static::$instance->hasAdapter();
+        return static::$_veneerInstance->hasAdapter();
     }
     public static function isLoggedIn(): bool {
-        return static::$instance->isLoggedIn();
+        return static::$_veneerInstance->isLoggedIn();
     }
     public static function getIdentity(): ?string {
-        return static::$instance->getIdentity();
+        return static::$_veneerInstance->getIdentity();
     }
     public static function getProfile(): Ref1 {
-        return static::$instance->getProfile();
+        return static::$_veneerInstance->getProfile();
     }
     public static function getClient(): Ref2 {
-        return static::$instance->getClient();
+        return static::$_veneerInstance->getClient();
     }
     public static function getId(): ?string {
-        return static::$instance->getId();
+        return static::$_veneerInstance->getId();
     }
     public static function getActiveId(): string {
-        return static::$instance->getActiveId();
+        return static::$_veneerInstance->getActiveId();
     }
     public static function getEmail(): ?string {
-        return static::$instance->getEmail();
+        return static::$_veneerInstance->getEmail();
     }
     public static function getFullName(): ?string {
-        return static::$instance->getFullName();
+        return static::$_veneerInstance->getFullName();
     }
     public static function getFirstName(): ?string {
-        return static::$instance->getFirstName();
+        return static::$_veneerInstance->getFirstName();
     }
     public static function getSurname(): ?string {
-        return static::$instance->getSurname();
+        return static::$_veneerInstance->getSurname();
     }
     public static function getNickName(): ?string {
-        return static::$instance->getNickName();
+        return static::$_veneerInstance->getNickName();
     }
     public static function getRegistrationDate(): ?Ref3 {
-        return static::$instance->getRegistrationDate();
+        return static::$_veneerInstance->getRegistrationDate();
     }
     public static function getLastLoginDate(): ?Ref3 {
-        return static::$instance->getLastLoginDate();
+        return static::$_veneerInstance->getLastLoginDate();
     }
     public static function getLanguage(): ?string {
-        return static::$instance->getLanguage();
+        return static::$_veneerInstance->getLanguage();
     }
     public static function getCountry(): ?string {
-        return static::$instance->getCountry();
+        return static::$_veneerInstance->getCountry();
     }
     public static function getTimeZone(): ?string {
-        return static::$instance->getTimeZone();
+        return static::$_veneerInstance->getTimeZone();
     }
     public static function getSignifiers(): array {
-        return static::$instance->getSignifiers();
+        return static::$_veneerInstance->getSignifiers();
     }
     public static function isA(string ...$signifiers): bool {
-        return static::$instance->isA(...func_get_args());
+        return static::$_veneerInstance->isA(...func_get_args());
     }
     public static function getIp(): Ref4 {
-        return static::$instance->getIp();
+        return static::$_veneerInstance->getIp();
     }
     public static function getIpString(): string {
-        return static::$instance->getIpString();
+        return static::$_veneerInstance->getIpString();
     }
     public static function getAgent(): ?string {
-        return static::$instance->getAgent();
+        return static::$_veneerInstance->getAgent();
     }
     public static function getGateKeeper(): Ref5 {
-        return static::$instance->getGateKeeper();
+        return static::$_veneerInstance->getGateKeeper();
     }
 };

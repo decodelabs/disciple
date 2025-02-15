@@ -13,22 +13,22 @@ use DateTime;
 
 interface Profile
 {
-    public function getId(): ?string;
-    public function getEmail(): ?string;
-    public function getFullName(): ?string;
-    public function getFirstName(): ?string;
-    public function getSurname(): ?string;
-    public function getNickName(): ?string;
+    public ?string $id { get; }
+    public ?string $email { get; }
+    public ?string $fullName { get; }
+    public ?string $firstName { get; }
+    public ?string $surname { get; }
+    public ?string $nickName { get; }
 
-    public function getRegistrationDate(): ?DateTime;
-    public function getLastLoginDate(): ?DateTime;
+    public ?DateTime $registrationDate { get; }
+    public ?DateTime $lastLoginDate { get; }
 
-    public function getLanguage(): ?string;
-    public function getCountry(): ?string;
-    public function getTimeZone(): ?string;
+    public ?string $language { get; }
+    public ?string $country { get; }
+    public ?string $timeZone { get; }
 
     /**
-     * @return array<string>
+     * @var list<string>
      */
-    public function getSignifiers(): array;
+    public array $signifiers { get; }
 }

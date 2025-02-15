@@ -14,9 +14,10 @@ use DecodeLabs\Disciple\Client;
 
 class Generic implements Client
 {
-    protected string $protocol;
-    protected Ip $ip;
-    protected ?string $agent;
+    protected(set) string $protocol;
+    protected(set) Ip $ip;
+    public string $ipString { get => (string)$this->ip; }
+    protected(set) ?string $agent;
 
     /**
      * Init with details
@@ -29,38 +30,5 @@ class Generic implements Client
         $this->protocol = $protocol;
         $this->ip = Ip::parse($ip);
         $this->agent = $agent;
-    }
-
-    /**
-     * Get protocol string
-     */
-    public function getProtocol(): string
-    {
-        return $this->protocol;
-    }
-
-    /**
-     * Get IP string
-     */
-    public function getIpString(): string
-    {
-        return (string)$this->ip;
-    }
-
-    /**
-     * Get IP object
-     */
-    public function getIp(): Ip
-    {
-        return $this->ip;
-    }
-
-
-    /**
-     * Get user agent string
-     */
-    public function getAgent(): ?string
-    {
-        return $this->agent;
     }
 }
