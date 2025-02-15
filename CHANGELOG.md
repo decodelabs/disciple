@@ -1,4 +1,10 @@
+## v0.5.0 (2025-02-15)
+* Replaced accessors with property hooks
+* Upgraded PHPStan to v2
+* Tidied boolean logic
+* Fixed Exceptional syntax
 * Added PHP8.4 to CI workflow
+* Made PHP8.4 minimum version
 
 ## v0.4.4 (2024-08-27)
 * Added Generic Profile implementation

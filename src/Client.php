@@ -13,9 +13,8 @@ use DecodeLabs\Compass\Ip;
 
 interface Client
 {
-    public function getProtocol(): string;
-    public function getIpString(): string;
-    public function getIp(): Ip;
-
-    public function getAgent(): ?string;
+    public string $protocol { get; }
+    public Ip $ip { get; }
+    public string $ipString { get; }
+    public ?string $agent { get; }
 }

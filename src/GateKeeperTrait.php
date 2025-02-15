@@ -12,7 +12,7 @@ namespace DecodeLabs\Disciple;
 use DateTime;
 use DecodeLabs\Compass\Ip;
 use DecodeLabs\Disciple\GateKeeper\Attempt;
-use DecodeLabs\Glitch;
+use DecodeLabs\Glitch\Proxy as Glitch;
 use Throwable;
 
 /**
@@ -62,8 +62,9 @@ trait GateKeeperTrait
             return true;
         }
 
-        $ip = $this->adapter->getClient()->getIpString();
-        $count = count($index[$ip] ?? []);
+        $ip = $this->adapter->client->ipString;
+        $set = $index[$ip] ?? [];
+        $count = count($set);
         $threshold = $this->getLoginThreshold();
 
         if ($count < $threshold) {
@@ -73,7 +74,7 @@ trait GateKeeperTrait
         $score = $count + $this->getScoreOffset($index, $ip);
         $over = $score - $threshold + 1;
         $minutes = min($over * $over / 3, $this->getMaxWaitMinutes());
-        $lastAttempt = current($index[$ip]) ?? null;
+        $lastAttempt = current($set);
 
         if (!$lastAttempt) {
             return true;
@@ -107,12 +108,12 @@ trait GateKeeperTrait
         bool $success
     ): void {
         try {
-            $client = $this->adapter->getClient();
+            $client = $this->adapter->client;
 
             $this->storeAttempt(
                 $this->prepareIdentity($identity),
-                $client->getIpString(),
-                $client->getAgent(),
+                $client->ipString,
+                $client->agent,
                 $success
             );
         } catch (Throwable $e) {
@@ -196,7 +197,7 @@ trait GateKeeperTrait
         $index = $authed = [];
 
         foreach ($attempts as $attempt) {
-            $ip = $attempt->getIpString();
+            $ip = $attempt->ipString;
 
             if ($attempt->wasSuccessful()) {
                 $authed[$ip] = true;
@@ -206,7 +207,7 @@ trait GateKeeperTrait
                 continue;
             }
 
-            $index[$ip][] = $attempt->getDate();
+            $index[$ip][] = $attempt->date;
         }
 
         return $index;

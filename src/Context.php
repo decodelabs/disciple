@@ -17,9 +17,7 @@ use DecodeLabs\Disciple\GateKeeper\Dummy as DummyGateKeeper;
 use DecodeLabs\Exceptional;
 use DecodeLabs\Veneer;
 
-class Context implements
-    Adapter,
-    Profile
+class Context
 {
     protected ?Adapter $adapter = null;
     protected ?GateKeeper $gateKeeper = null;
@@ -42,7 +40,9 @@ class Context implements
     public function getAdapter(): Adapter
     {
         if ($this->adapter === null) {
-            throw Exceptional::Setup('No Disciple adapter has been registered');
+            throw Exceptional::Setup(
+                message: 'No Disciple adapter has been registered'
+            );
         }
 
         return $this->adapter;
@@ -70,7 +70,7 @@ class Context implements
      */
     public function getIdentity(): ?string
     {
-        return $this->getAdapter()->getIdentity();
+        return $this->getAdapter()->identity;
     }
 
     /**
@@ -78,7 +78,7 @@ class Context implements
      */
     public function getProfile(): Profile
     {
-        return $this->getAdapter()->getProfile();
+        return $this->getAdapter()->profile;
     }
 
     /**
@@ -86,7 +86,7 @@ class Context implements
      */
     public function getClient(): Client
     {
-        return $this->getAdapter()->getClient();
+        return $this->getAdapter()->client;
     }
 
 
@@ -95,7 +95,7 @@ class Context implements
      */
     public function getId(): ?string
     {
-        return $this->getProfile()->getId();
+        return $this->getProfile()->id;
     }
 
     /**
@@ -104,13 +104,17 @@ class Context implements
     public function getActiveId(): string
     {
         if (!$this->isLoggedIn()) {
-            throw Exceptional::Runtime('User is not logged in');
+            throw Exceptional::Runtime(
+                message: 'User is not logged in'
+            );
         }
 
-        $id = $this->getProfile()->getId();
+        $id = $this->getProfile()->id;
 
         if ($id === null) {
-            throw Exceptional::Runtime('User does not have an ID');
+            throw Exceptional::Runtime(
+                message: 'User does not have an ID'
+            );
         }
 
         return (string)$id;
@@ -121,7 +125,7 @@ class Context implements
      */
     public function getEmail(): ?string
     {
-        return $this->getProfile()->getEmail();
+        return $this->getProfile()->email;
     }
 
     /**
@@ -129,7 +133,7 @@ class Context implements
      */
     public function getFullName(): ?string
     {
-        return $this->getProfile()->getFullName();
+        return $this->getProfile()->fullName;
     }
 
     /**
@@ -137,7 +141,7 @@ class Context implements
      */
     public function getFirstName(): ?string
     {
-        return $this->getProfile()->getFirstName();
+        return $this->getProfile()->firstName;
     }
 
     /**
@@ -145,7 +149,7 @@ class Context implements
      */
     public function getSurname(): ?string
     {
-        return $this->getProfile()->getSurname();
+        return $this->getProfile()->surname;
     }
 
     /**
@@ -153,7 +157,7 @@ class Context implements
      */
     public function getNickName(): ?string
     {
-        return $this->getProfile()->getNickName();
+        return $this->getProfile()->nickName;
     }
 
 
@@ -162,7 +166,7 @@ class Context implements
      */
     public function getRegistrationDate(): ?DateTime
     {
-        return $this->getProfile()->getRegistrationDate();
+        return $this->getProfile()->registrationDate;
     }
 
     /**
@@ -170,7 +174,7 @@ class Context implements
      */
     public function getLastLoginDate(): ?DateTime
     {
-        return $this->getProfile()->getLastLoginDate();
+        return $this->getProfile()->lastLoginDate;
     }
 
     /**
@@ -178,7 +182,7 @@ class Context implements
      */
     public function getLanguage(): ?string
     {
-        return $this->getProfile()->getLanguage();
+        return $this->getProfile()->language;
     }
 
     /**
@@ -186,7 +190,7 @@ class Context implements
      */
     public function getCountry(): ?string
     {
-        return $this->getProfile()->getCountry();
+        return $this->getProfile()->country;
     }
 
     /**
@@ -194,16 +198,18 @@ class Context implements
      */
     public function getTimeZone(): ?string
     {
-        return $this->getProfile()->getTimeZone();
+        return $this->getProfile()->timeZone;
     }
 
 
     /**
      * Get current user access signifiers
+     *
+     * @return list<string>
      */
     public function getSignifiers(): array
     {
-        return $this->getProfile()->getSignifiers();
+        return $this->getProfile()->signifiers;
     }
 
     /**
@@ -221,7 +227,7 @@ class Context implements
      */
     public function getIp(): Ip
     {
-        return $this->getClient()->getIp();
+        return $this->getClient()->ip;
     }
 
     /**
@@ -229,7 +235,7 @@ class Context implements
      */
     public function getIpString(): string
     {
-        return $this->getClient()->getIpString();
+        return $this->getClient()->ipString;
     }
 
     /**
@@ -237,7 +243,7 @@ class Context implements
      */
     public function getAgent(): ?string
     {
-        return $this->getClient()->getAgent();
+        return $this->getClient()->agent;
     }
 
 
@@ -254,7 +260,7 @@ class Context implements
         $adapter = $this->getAdapter();
 
         if ($adapter instanceof GateKeeperAdapter) {
-            return $this->gateKeeper = $adapter->getGateKeeper();
+            return $this->gateKeeper = $adapter->gateKeeper;
         }
 
         return $this->gateKeeper = new DummyGateKeeper();
@@ -262,4 +268,7 @@ class Context implements
 }
 
 // Register the Veneer facade
-Veneer::register(Context::class, Disciple::class);
+Veneer\Manager::getGlobalManager()->register(
+    Context::class,
+    Disciple::class
+);

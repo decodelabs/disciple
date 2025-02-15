@@ -14,9 +14,10 @@ use DecodeLabs\Compass\Ip;
 
 class Attempt
 {
-    protected DateTime $date;
-    protected Ip $ip;
-    protected bool $success;
+    protected(set) DateTime $date;
+    protected(set) Ip $ip;
+    public string $ipString { get => (string)$this->ip; }
+    protected(set) bool $success;
 
 
     /**
@@ -30,31 +31,6 @@ class Attempt
         $this->date = $date;
         $this->ip = Ip::parse($ip);
         $this->success = $success;
-    }
-
-
-    /**
-     * Get date
-     */
-    public function getDate(): DateTime
-    {
-        return $this->date;
-    }
-
-    /**
-     * Get IP
-     */
-    public function getIp(): Ip
-    {
-        return $this->ip;
-    }
-
-    /**
-     * Get IP string
-     */
-    public function getIpString(): string
-    {
-        return (string)$this->ip;
     }
 
     /**
