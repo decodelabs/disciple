@@ -11,8 +11,6 @@
 
 Disciple offers a set of simple interfaces that allows third party code to define reliable entry points to user state and data.
 
-_Get news and updates on the [DecodeLabs blog](https://blog.decodelabs.com)._
-
 ---
 
 ## Installation
