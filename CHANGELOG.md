@@ -1,73 +1,172 @@
-## v0.5.0 (2025-02-15)
-* Replaced accessors with property hooks
-* Upgraded PHPStan to v2
-* Tidied boolean logic
-* Fixed Exceptional syntax
-* Added PHP8.4 to CI workflow
-* Made PHP8.4 minimum version
+# Changelog
 
-## v0.4.4 (2024-08-27)
-* Added Generic Profile implementation
-* Added @phpstan-require-implements constraints
+All notable changes to this project will be documented in this file.<br>
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## v0.4.3 (2024-08-21)
-* Updated Compass dependency
-* Updated Veneer dependency and Stub
+---
 
-## v0.4.2 (2024-07-17)
-* Updated Veneer dependency
+### [v0.5.0](https://github.com/decodelabs/disciple/commits/v0.5.0) - 15th February 2025
 
-## v0.4.1 (2024-04-29)
-* Fixed Veneer stubs in gitattributes
+- Replaced accessors with property hooks
+- Upgraded PHPStan to v2
+- Tidied boolean logic
+- Fixed Exceptional syntax
+- Added PHP8.4 to CI workflow
+- Made PHP8.4 minimum version
 
-## v0.4.0 (2023-11-18)
-* Fixed storeAttempt() signature
-* Made PHP8.1 minimum version
-* Refactored package file structure
+[Full list of changes](https://github.com/decodelabs/disciple/compare/v0.4.4...v0.5.0)
 
-## v0.3.6 (2023-09-26)
-* Migrated to use effigy in CI workflow
-* Fixed PHP8.1 testing
+---
 
-## v0.3.5 (2022-09-27)
-* Updated Veneer stub
-* Updated composer check script
+### [v0.4.4](https://github.com/decodelabs/disciple/commits/v0.4.4) - 27th August 2024
 
-## v0.3.4 (2022-09-27)
-* Updated Veneer dependency
+- Added Generic Profile implementation
+- Added @phpstan-require-implements constraints
 
-## v0.3.3 (2022-09-12)
-* Added getIp() to Context
+[Full list of changes](https://github.com/decodelabs/disciple/compare/v0.4.3...v0.4.4)
 
-## v0.3.2 (2022-09-12)
-* Use Compass for IP support
-* Updated CI environment
+---
 
-## v0.3.1 (2022-08-24)
-* Added concrete types to all members
+### [v0.4.3](https://github.com/decodelabs/disciple/commits/v0.4.3) - 21st August 2024
 
-## v0.3.0 (2022-08-23)
-* Removed PHP7 compatibility
-* Updated ECS to v11
-* Updated PHPUnit to v9
+- Updated Compass dependency
+- Updated Veneer dependency and Stub
 
-## v0.2.1 (2022-03-10)
-* Transitioned from Travis to GHA
-* Updated PHPStan and ECS dependencies
+[Full list of changes](https://github.com/decodelabs/disciple/compare/v0.4.2...v0.4.3)
 
-## v0.2.0 (2022-03-08)
-* Added Client interface and adapter support
-* Added GateKeeper interface and adapter support
-* Added Login Attempt approval to GateKeeper
+---
 
-## v0.1.3 (2021-10-20)
-* Updated Veneer dependency
+### [v0.4.2](https://github.com/decodelabs/disciple/commits/v0.4.2) - 17th July 2024
 
-## v0.1.2 (2021-05-11)
-* Added Veneer IDE support stub
+- Updated Veneer dependency
 
-## v0.1.1 (2021-05-05)
-* Added getActiveId() to Context
+[Full list of changes](https://github.com/decodelabs/disciple/compare/v0.4.1...v0.4.2)
 
-## v0.1.0 (2021-04-20)
-* Developed initial interfaces and frontage
+---
+
+### [v0.4.1](https://github.com/decodelabs/disciple/commits/v0.4.1) - 29th April 2024
+
+- Fixed Veneer stubs in gitattributes
+
+[Full list of changes](https://github.com/decodelabs/disciple/compare/v0.4.0...v0.4.1)
+
+---
+
+### [v0.4.0](https://github.com/decodelabs/disciple/commits/v0.4.0) - 18th November 2023
+
+- Fixed storeAttempt() signature
+- Made PHP8.1 minimum version
+- Refactored package file structure
+
+[Full list of changes](https://github.com/decodelabs/disciple/compare/v0.3.6...v0.4.0)
+
+---
+
+### [v0.3.6](https://github.com/decodelabs/disciple/commits/v0.3.6) - 26th September 2023
+
+- Migrated to use effigy in CI workflow
+- Fixed PHP8.1 testing
+
+[Full list of changes](https://github.com/decodelabs/disciple/compare/v0.3.5...v0.3.6)
+
+---
+
+### [v0.3.5](https://github.com/decodelabs/disciple/commits/v0.3.5) - 27th September 2022
+
+- Updated Veneer stub
+- Updated composer check script
+
+[Full list of changes](https://github.com/decodelabs/disciple/compare/v0.3.4...v0.3.5)
+
+---
+
+### [v0.3.4](https://github.com/decodelabs/disciple/commits/v0.3.4) - 27th September 2022
+
+- Updated Veneer dependency
+
+[Full list of changes](https://github.com/decodelabs/disciple/compare/v0.3.3...v0.3.4)
+
+---
+
+### [v0.3.3](https://github.com/decodelabs/disciple/commits/v0.3.3) - 12th September 2022
+
+- Added getIp() to Context
+
+[Full list of changes](https://github.com/decodelabs/disciple/compare/v0.3.2...v0.3.3)
+
+---
+
+### [v0.3.2](https://github.com/decodelabs/disciple/commits/v0.3.2) - 12th September 2022
+
+- Use Compass for IP support
+- Updated CI environment
+
+[Full list of changes](https://github.com/decodelabs/disciple/compare/v0.3.1...v0.3.2)
+
+---
+
+### [v0.3.1](https://github.com/decodelabs/disciple/commits/v0.3.1) - 24th August 2022
+
+- Added concrete types to all members
+
+[Full list of changes](https://github.com/decodelabs/disciple/compare/v0.3.0...v0.3.1)
+
+---
+
+### [v0.3.0](https://github.com/decodelabs/disciple/commits/v0.3.0) - 23rd August 2022
+
+- Removed PHP7 compatibility
+- Updated ECS to v11
+- Updated PHPUnit to v9
+
+[Full list of changes](https://github.com/decodelabs/disciple/compare/v0.2.1...v0.3.0)
+
+---
+
+### [v0.2.1](https://github.com/decodelabs/disciple/commits/v0.2.1) - 10th March 2022
+
+- Transitioned from Travis to GHA
+- Updated PHPStan and ECS dependencies
+
+[Full list of changes](https://github.com/decodelabs/disciple/compare/v0.2.0...v0.2.1)
+
+---
+
+### [v0.2.0](https://github.com/decodelabs/disciple/commits/v0.2.0) - 8th March 2022
+
+- Added Client interface and adapter support
+- Added GateKeeper interface and adapter support
+- Added Login Attempt approval to GateKeeper
+
+[Full list of changes](https://github.com/decodelabs/disciple/compare/v0.1.3...v0.2.0)
+
+---
+
+### [v0.1.3](https://github.com/decodelabs/disciple/commits/v0.1.3) - 20th October 2021
+
+- Updated Veneer dependency
+
+[Full list of changes](https://github.com/decodelabs/disciple/compare/v0.1.2...v0.1.3)
+
+---
+
+### [v0.1.2](https://github.com/decodelabs/disciple/commits/v0.1.2) - 11th May 2021
+
+- Added Veneer IDE support stub
+
+[Full list of changes](https://github.com/decodelabs/disciple/compare/v0.1.1...v0.1.2)
+
+---
+
+### [v0.1.1](https://github.com/decodelabs/disciple/commits/v0.1.1) - 5th May 2021
+
+- Added getActiveId() to Context
+
+[Full list of changes](https://github.com/decodelabs/disciple/compare/v0.1.0...v0.1.1)
+
+---
+
+### [v0.1.0](https://github.com/decodelabs/disciple/commits/v0.1.0) - 20th April 2021
+
+- Developed initial interfaces and frontage
