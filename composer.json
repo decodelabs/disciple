@@ -11,10 +11,10 @@
     "require": {
         "php": "^8.4",
 
-        "decodelabs/compass": "^0.3",
-        "decodelabs/exceptional": "^0.6",
-        "decodelabs/monarch": "^0.1.3",
-        "decodelabs/veneer": "^0.12.1"
+        "decodelabs/compass": "^0.3.1",
+        "decodelabs/exceptional": "^0.6.1",
+        "decodelabs/monarch": "^0.1.4",
+        "decodelabs/veneer": "^0.12.8"
     },
     "require-dev": {
         "decodelabs/phpstan-decodelabs": "^0.7"
