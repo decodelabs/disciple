@@ -12,7 +12,7 @@ namespace DecodeLabs\Disciple;
 use DateTime;
 use DecodeLabs\Compass\Ip;
 use DecodeLabs\Disciple\GateKeeper\Attempt;
-use DecodeLabs\Glitch\Proxy as Glitch;
+use DecodeLabs\Monarch;
 use Throwable;
 
 /**
@@ -43,7 +43,7 @@ trait GateKeeperTrait
         try {
             return $this->rawApproveLogin($identity, $failHandler);
         } catch (Throwable $e) {
-            Glitch::logException($e);
+            Monarch::logException($e);
             return true;
         }
     }
@@ -117,7 +117,7 @@ trait GateKeeperTrait
                 $success
             );
         } catch (Throwable $e) {
-            Glitch::logException($e);
+            Monarch::logException($e);
         }
     }
 
