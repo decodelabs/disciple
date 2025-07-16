@@ -14,10 +14,10 @@ use DecodeLabs\Disciple\Client;
 
 class Generic implements Client
 {
-    protected(set) string $protocol;
-    protected(set) Ip $ip;
+    public protected(set) string $protocol;
+    public protected(set) Ip $ip;
     public string $ipString { get => (string)$this->ip; }
-    protected(set) ?string $agent;
+    public protected(set) ?string $agent;
 
     /**
      * Init with details

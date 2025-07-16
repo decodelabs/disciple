@@ -18,9 +18,9 @@ class Generic implements Profile
         'mr', 'mrs', 'miss', 'ms', 'mx', 'master', 'maid', 'madam', 'dr'
     ];
 
-    protected(set) ?string $id;
-    protected(set) ?string $email;
-    protected(set) ?string $fullName;
+    public protected(set) ?string $id;
+    public protected(set) ?string $email;
+    public protected(set) ?string $fullName;
 
     public ?string $firstName {
         get {
@@ -59,19 +59,19 @@ class Generic implements Profile
         }
     }
 
-    protected(set) ?string $nickName;
+    public protected(set) ?string $nickName;
 
-    protected(set) ?DateTime $registrationDate;
-    protected(set) ?DateTime $lastLoginDate;
+    public protected(set) ?DateTime $registrationDate;
+    public protected(set) ?DateTime $lastLoginDate;
 
-    protected(set) ?string $language;
-    protected(set) ?string $country;
-    protected(set) ?string $timeZone;
+    public protected(set) ?string $language;
+    public protected(set) ?string $country;
+    public protected(set) ?string $timeZone;
 
     /**
      * @var list<string>
      */
-    protected(set) array $signifiers = [];
+    public protected(set) array $signifiers = [];
 
     /**
      * @param list<string> $signifiers

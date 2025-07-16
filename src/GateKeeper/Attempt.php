@@ -14,10 +14,10 @@ use DecodeLabs\Compass\Ip;
 
 class Attempt
 {
-    protected(set) DateTime $date;
-    protected(set) Ip $ip;
+    public protected(set) DateTime $date;
+    public protected(set) Ip $ip;
     public string $ipString { get => (string)$this->ip; }
-    protected(set) bool $success;
+    public protected(set) bool $success;
 
 
     /**
