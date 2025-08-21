@@ -15,7 +15,7 @@ interface Adapter
     public Profile $profile { get; }
     public Client $client { get; }
 
-    public function isLoggedIn(): bool;
+    public bool $loggedIn { get; }
 
     public function isA(
         string ...$signifiers

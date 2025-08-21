@@ -23,47 +23,47 @@ composer require decodelabs/disciple
 
 ## Usage
 
-### Importing
-
-Disciple uses [Veneer](https://github.com/decodelabs/veneer) to provide a unified frontage under <code>DecodeLabs\Disciple</code>.
-You can access all the primary functionality via this static frontage without compromising testing and dependency injection.
-
-
 ### Implementation
 
-An implementation of Disciple revolves around an Adapter - this acts as the primary mediator between the Disciple Veneer frontage and your system's user management infrastructure.
+An implementation of Disciple revolves around an Adapter - this acts as the primary mediator between the Disciple service and your system's user management infrastructure.
 
 ```php
 namespace DecodeLabs\Disciple;
 
 interface Adapter
 {
-    public function isLoggedIn(): bool;
+    public ?string $identity { get; }
+    public Profile $profile { get; }
+    public Client $client { get; }
 
-    public function getIdentity(): ?string;
-    public function getProfile(): Profile;
+    public bool $loggedIn { get; }
 
-    public function isA(string ...$signifiers): bool;
+    public function isA(
+        string ...$signifiers
+    ): bool;
 }
 ```
 
-Your adapter should be registered during your app's bootstrap process:
+Your adapter should be supplied during instantiation of the Disciple service. This is typically done in your app's bootstrap process via your service container:
 
 ```php
 use DecodeLabs\Disciple;
+use DecodeLabs\Disciple\Adapter;
+use DecodeLabs\Monarch;
 use My\App\DiscipleAdapter;
 
-Disciple::setAdapter(new DiscipleAdapter(
-    $myUserManager
-));
+Monarch::getKingdom()->container->set(
+    Adapter::class,
+    new DiscipleAdapter($myUserManager)
+);
+
+$disciple = Monarch::getService(Disciple::class);
 ```
 
 Then at any future point, queries can be made against the current user:
 
 ```php
-use DecodeLabs\Disciple;
-
-if(Disciple::isLoggedIn()) {
+if($disciple->loggedIn) {
     echo 'Yay, you\'re logged in';
 } else {
     echo 'Boo, nobody loves me';
@@ -76,35 +76,34 @@ if(Disciple::isLoggedIn()) {
 A registered Adapter should be able to provide an instance of a <code>Profile</code>, representing core data about the current user, such as name, email address, locale, etc.
 
 ```php
-namespace DecodeLabs\Disciple;
-
 interface Profile
 {
-    public function getId(): ?string;
-    public function getEmail(): ?string;
-    public function getFullName(): ?string;
-    public function getFirstName(): ?string;
-    public function getSurname(): ?string;
-    public function getNickName(): ?string;
+    public ?string $id { get; }
+    public ?string $email { get; }
+    public ?string $fullName { get; }
+    public ?string $firstName { get; }
+    public ?string $surname { get; }
+    public ?string $nickName { get; }
 
-    public function getRegistrationDate(): ?DateTime;
-    public function getLastLoginDate(): ?DateTime;
+    public ?DateTime $registrationDate { get; }
+    public ?DateTime $lastLoginDate { get; }
 
-    public function getLanguage(): ?string;
-    public function getCountry(): ?string;
-    public function getTimeZone(): ?string;
+    public ?string $language { get; }
+    public ?string $country { get; }
+    public ?string $timeZone { get; }
 
-    public function getSignifiers(): array;
+    /**
+     * @var list<string>
+     */
+    public array $signifiers { get; }
 }
 ```
 
-The Veneer frontage can interface directly with this profile information, allowing quick access of user data:
+The service can interface directly with this profile information, allowing quick access of user data:
 
 ```php
-use DecodeLabs\Disciple;
-
-if(Disciple::isLoggedIn()) {
-    echo 'Hello '.Disciple::getFullName();
+if($disciple->loggedIn) {
+    echo 'Hello ' . $disciple->fullName;
 } else {
     echo 'You should probably log in first';
 }
@@ -118,13 +117,12 @@ An Adapter should also be able to provide a Client object which can report detai
 Currently, that entails the following, but with more to follow in future versions:
 
 ```php
-namespace DecodeLabs\Disciple;
-
 interface Client
 {
-    public function getProtocol(): string;
-    public function getIpString(): string;
-    public function getAgent(): ?string;
+    public string $protocol { get; }
+    public Ip $ip { get; }
+    public string $ipString { get; }
+    public ?string $agent { get; }
 }
 ```
 
@@ -136,7 +134,7 @@ The Disciple interfaces define the concept of <code>signifiers</code> - string k
 It is the responsibility of the Adapter implementation to define _how_ signifiers are stored and distributed, however the definition of this interface allows for a powerful, quick access mechanism for high level structures in your application.
 
 ```php
-if(Disciple::isA('admin')) {
+if($disciple->isA('admin')) {
     echo 'You can see the fun stuff';
 } else {
     echo 'You should go home now';

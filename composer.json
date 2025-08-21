@@ -11,20 +11,20 @@
     "require": {
         "php": "^8.4",
 
-        "decodelabs/compass": "^0.3.1",
-        "decodelabs/exceptional": "^0.6.1",
-        "decodelabs/monarch": "^0.1.4",
-        "decodelabs/veneer": "^0.12.8"
+        "decodelabs/compass": "^0.4",
+        "decodelabs/exceptional": "^0.6.3",
+        "decodelabs/kingdom": "^0.1",
+        "decodelabs/monarch": "^0.2"
     },
     "require-dev": {
         "decodelabs/phpstan-decodelabs": "^0.7"
     },
     "autoload": {
         "psr-4": {
-            "DecodeLabs\\Disciple\\": "src/"
+            "DecodeLabs\\Disciple\\": "src/Disciple/"
         },
-        "files": [
-            "src/Context.php"
+        "classmap": [
+            "src/Disciple.php"
         ]
     },
     "extra": {
