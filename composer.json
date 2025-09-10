@@ -13,7 +13,7 @@
 
         "decodelabs/compass": "^0.4",
         "decodelabs/exceptional": "^0.6.3",
-        "decodelabs/kingdom": "^0.1",
+        "decodelabs/kingdom": "^0.2",
         "decodelabs/monarch": "^0.2"
     },
     "require-dev": {
