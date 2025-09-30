@@ -15,6 +15,8 @@ Disciple offers a set of simple interfaces that allows third party code to defin
 
 ## Installation
 
+This package requires PHP 8.4 or higher.
+
 Install via Composer:
 
 ```bash
