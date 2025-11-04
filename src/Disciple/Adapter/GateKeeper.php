@@ -1,8 +1,8 @@
 <?php
 
 /**
- * @package Disciple
- * @license http://opensource.org/licenses/MIT
+ * Disciple
+ * @license https://opensource.org/licenses/MIT
  */
 
 declare(strict_types=1);
